@@ -12,7 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 /* Filter chain for security configuration and to filter the requests but currently I am facing some issue when i limit the request
-    so i am allowing all the requests*/
+    so currently I am allowing all the requests I will resolve this issue and update it as soon as possible*/
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
