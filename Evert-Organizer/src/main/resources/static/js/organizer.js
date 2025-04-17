@@ -130,8 +130,7 @@ async function addNewEvent() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                // Add authorization header if required
-                // 'Authorization': `Bearer ${localStorage.getItem('token')}`
+               
             },
             body: JSON.stringify(eventData)
         });
