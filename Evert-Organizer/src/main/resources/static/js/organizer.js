@@ -1,4 +1,4 @@
-const API_BASE = 'https://capstone-project-1-dcit.onrender.com';
+const API_BASE = 'https://capstone-project-1-dcit.onrender.com/api/auth';
 let selectedEventId = null;
 let DEFAULT_IMAGE_URL = 'https://localmedia.org/wp-content/uploads/2021/06/events-1.png';
 
