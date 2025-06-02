@@ -84,7 +84,6 @@ public class EventService {
         event.setStatus("DELETED");
         eventRepository.save(event);
     }
-    // Add these methods
     public List<Event> getUpcomingEvents(String attendeeUsername) {
         List<Event> allEvents = eventRepository.findUpcomingEvents(LocalDateTime.now());
         List<Event> bookedEvents = eventRepository.findByAttendeeBookings(attendeeUsername);

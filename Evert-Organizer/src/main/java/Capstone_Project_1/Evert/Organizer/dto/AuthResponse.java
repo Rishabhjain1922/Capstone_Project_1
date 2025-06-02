@@ -12,10 +12,6 @@ public class AuthResponse {
         this(success, message, role, null, null);
     }
 
-    public AuthResponse(boolean success, String message, String role, String username) {
-        this(success, message, role, username, null);
-    }
-
     public AuthResponse(boolean success, String message, String role, String username, String token) {
         this.success = success;
         this.message = message;
