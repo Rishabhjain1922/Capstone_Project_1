@@ -1,4 +1,5 @@
-const API_BASE = 'http://localhost:8080/api';
+const API_BASE = 'https://capstone-project-1-dcit.onrender.com/api/auth';
+
 
 // Get the current attendee username from local storage which is stored during login
 let currentAttendee = localStorage.getItem('attendeeUsername');
