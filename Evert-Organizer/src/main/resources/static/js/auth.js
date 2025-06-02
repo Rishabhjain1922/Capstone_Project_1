@@ -1,4 +1,4 @@
-const API_BASE = 'https://capstone-project-1-dcit.onrender.com/api/auth';
+const API_BASE = 'https://capstone-project-1-dcit.onrender.com';
 function storeToken(token) {
     localStorage.setItem('jwtToken', token);
 }
