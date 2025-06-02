@@ -26,22 +26,30 @@ public class EventController {
     @PostMapping
     public ResponseEntity<?> createEvent(@RequestBody Event event) {
         try {
+            System.out.println("Received event creation request: " + event.toString()); // Log the incoming request
+
             // Input validation
             if (event.getOrganizerUsername() == null) {
+                System.out.println("Validation failed: Organizer username is required");
                 return ResponseEntity.badRequest().body("Organizer username is required");
             }
 
             if (!SQLInjectionProtection.isSafe(event.getOrganizerUsername()) ||
                     !SQLInjectionProtection.isSafe(event.getTitle()) ||
                     !SQLInjectionProtection.isSafe(event.getDescription())) {
+                System.out.println("Validation failed: Invalid input detected");
                 return ResponseEntity.badRequest().body("Invalid input detected");
             }
 
             Event createdEvent = eventService.createEvent(event);
+            System.out.println("Event created successfully: " + createdEvent.getId());
             return ResponseEntity.status(HttpStatus.CREATED).body(createdEvent);
         } catch (IllegalArgumentException e) {
+            System.out.println("Validation error: " + e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
+            System.out.println("Error creating event: " + e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error creating event: " + e.getMessage());
         }
