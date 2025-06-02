@@ -1,20 +1,20 @@
-# Use an official OpenJDK 17 runtime as the base image
+# Use an official OpenJDK runtime as a parent image
 FROM openjdk:17-jdk-slim
 
-# Set working directory inside the container
+# Set working directory inside container
 WORKDIR /app
 
-# Copy the entire project into the container
+# Copy everything from the current folder (Evert-Organizer) into /app
 COPY . .
 
-# Make Maven wrapper executable
+# Make the Maven wrapper executable
 RUN chmod +x mvnw
 
-# Build the Spring Boot app (skip tests for faster build)
+# Build your app inside the container
 RUN ./mvnw clean package -DskipTests
 
-# Expose the default Spring Boot port
+# Expose port your Spring Boot app will run on (default 8080)
 EXPOSE 8080
 
-# Run the Spring Boot application (use shell form for wildcard)
-CMD java -jar target/*.jar
+# Run the jar file produced by Maven
+CMD ["sh", "-c", "java -jar target/*.jar"]
